@@ -7,7 +7,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// server
 const users = [];
+const tweets = [];
 
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
@@ -30,7 +32,10 @@ app.post('/tweets', (req, res) => {
         tweet
     }
 
-    res.send(post).send("OK")
+    tweets.push(post);
+    console.log(tweets);
+
+    res.send("OK")
 })
 
 app.get('/tweet', (req, res) => {
