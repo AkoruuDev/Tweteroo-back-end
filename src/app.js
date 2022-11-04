@@ -18,6 +18,17 @@ app.post('/sign-up', (req, res) => {
     res.send("OK");
 })
 
+app.post('/tweets', (req, res) => {
+    const { username, tweet } = req.body;
+
+    const post = {
+        username,
+        tweet
+    }
+
+    res.send(post).send("OK")
+})
+
 app.listen(5000, () => {
     console.log('Server ruinning')
 })
