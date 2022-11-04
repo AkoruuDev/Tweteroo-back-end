@@ -39,6 +39,16 @@ app.post('/tweets', (req, res) => {
 })
 
 app.get('/tweets', (req, res) => {
+
+    const user = users.find(user => user.username === username);
+    const avatar = user.avatar;
+
+    const posts = {
+        username,
+        tweet,
+        avatar
+    }
+
     res.send("Seus posts aqui")
 })
 
