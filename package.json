@@ -1,0 +1,11 @@
+{
+  "name": "projeto12-tweteroo",
+  "version": "1.0.0",
+  "description": "A back-end project is an API construction from Tweteroo, a Twitter clone",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Akoruu Dev",
+  "license": "MIT"
+}
