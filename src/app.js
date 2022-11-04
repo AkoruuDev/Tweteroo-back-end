@@ -7,6 +7,8 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+const users = [];
+
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
 
@@ -14,6 +16,8 @@ app.post('/sign-up', (req, res) => {
         username,
         avatar
     }
+
+    users.push(user);
 
     res.send("OK");
 })
