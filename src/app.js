@@ -10,7 +10,12 @@ app.use(express.json());
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
 
-    res.send(username, avatar);
+    const user = {
+        username,
+        avatar
+    }
+
+    res.send("OK");
 })
 
 app.listen(5000, () => {
