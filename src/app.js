@@ -38,7 +38,7 @@ app.post('/tweets', (req, res) => {
     res.send("OK")
 })
 
-app.get('/tweet', (req, res) => {
+app.get('/tweets', (req, res) => {
     res.send("Seus posts aqui")
 })
 
