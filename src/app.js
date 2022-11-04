@@ -29,6 +29,10 @@ app.post('/tweets', (req, res) => {
     res.send(post).send("OK")
 })
 
+app.get('/tweet', (req, res) => {
+    res.send("Seus posts aqui")
+})
+
 app.listen(5000, () => {
     console.log('Server ruinning')
 })
