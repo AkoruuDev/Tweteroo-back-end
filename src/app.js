@@ -14,6 +14,19 @@ const tweets = [];
 app.post('/sign-up', (req, res) => {
     const { username, avatar } = req.body;
 
+    function usernameErr() {
+        return username === undefined || username === null || username === "" || !username
+    }
+
+    function avatarErr() {
+        return avatar === undefined || avatar === null || avatar === "" || !avatar
+    }
+
+    if (usernameErr() || avatarErr()) {
+        res.status(400).send('Todos os campos devem ser preenchidos');
+        return;
+    }
+
     const user = {
         username,
         avatar
@@ -26,6 +39,15 @@ app.post('/sign-up', (req, res) => {
 
 app.post('/tweets', (req, res) => {
     const { username, tweet } = req.body;
+    
+    function tweetErr() {
+        return tweet === undefined || tweet === null || tweet === "" || !tweet;
+    }
+
+    if (tweetErr()) {
+        res.status(422).send('O tweet não pode estar vazio');
+        return;
+    }
 
     const post = {
         username,
