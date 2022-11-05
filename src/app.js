@@ -33,23 +33,20 @@ app.post('/tweets', (req, res) => {
     }
 
     tweets.push(post);
-    console.log(tweets);
 
     res.send("OK")
 })
 
 app.get('/tweets', (req, res) => {
 
-    const user = users.find(user => user.username === username);
-    const avatar = user.avatar;
+    const novoTweets = tweets.map(tweet => {
+        const user = users.find(user => user.username === tweet.username);
+        const avatar = user.avatar;
 
-    const posts = {
-        username,
-        tweet,
-        avatar
-    }
+        return ({ ...tweet, avatar })
+    });
 
-    res.send("Seus posts aqui")
+    res.send(novoTweets.slice(novoTweets.length - 10))
 })
 
 app.listen(5000, () => {
